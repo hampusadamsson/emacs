@@ -1,0 +1,26 @@
+import java.net.*;
+import java.util.regex.*;
+
+public class webcrawler {
+
+    public static void main(String [] args) {
+
+	Utility test = new Utility();
+	URL testURL = test.urlify("file:///Users/Jocken/Documents/UU/hampus/webcrawler/mini-test-data/page1.html");
+
+	String pageContents = test.readURL(testURL);
+	System.out.println(pageContents);
+
+	//Pattern TITLE = new Pattern();
+	//Matcher titleMatcher = new Matcher();
+
+	Pattern TITLE = Pattern.compile("<title>(.*?)</title>", Pattern.MULTILINE | Pattern.CASE_INSENSITIVE);
+	Matcher titleMatcher = TITLE.matcher(pageContents);
+	while (titleMatcher.find()) {
+	  String name = titleMatcher.group(1);
+
+	  System.out.println(name);
+	}
+	
+    }
+}

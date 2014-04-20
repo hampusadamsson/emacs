@@ -1,3 +1,9 @@
+;;TILDE
+(require 'iso-transl)
+
+;;ERLANG-MODE (erlang.el)
+(require 'erlang-start)
+
 ;;AUTOCOMPLE
 (add-to-list 'load-path "/root/.emacs.d/")
 (require 'auto-complete-config)
